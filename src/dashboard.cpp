@@ -3,6 +3,10 @@ Dashboard::Dashboard(ros::NodeHandle* nh, QWidget* parent)
     : QMainWindow(parent), ui(new Ui::Dashboard), nh(nh)
 {
   ui->setupUi(this);
+  distanceTravelled = 0;
+  x = 0;
+  y = 0;
+  z = 0;
   fetchStartupParameters();
   reconfigureSpeedSlider();
   registerRosTopics();
@@ -258,13 +262,22 @@ void Dashboard::fetchStartupParameters()
   {
     speedStep = DEFAULT_SPEED_STEP;
   }
+  if (nh->hasParam("dashboard/odom_topic"))
+  {
+    nh->getParam("dashboard/odom_topic", odomTopic);
+  }
+  else
+  {
+    odomTopic = DEFAULT_ODOM_TOPIC;
+  }
   leftSgn = boost::math::sign(maxLeftSteering);
   rightSgn = boost::math::sign(maxRightSteering);
   fwdSgn = boost::math::sign(maxForwardSpeed);
   bwdSgn = boost::math::sign(maxReverseSpeed);
 }
 
-void Dashboard::reconfigureSpeedSlider() {
+void Dashboard::reconfigureSpeedSlider()
+{
   ui->speedSlider->setMaximum(maxForwardSpeed);
   ui->speedSlider->setMinimum(maxReverseSpeed);
   ui->speedSlider->setSingleStep(speedStep);
@@ -277,8 +290,10 @@ void Dashboard::reconfigureSpeedSlider() {
   ui->steeringSlider->setSingleStep(steeringStep);
   ui->steeringSlider->setSliderPosition(0);
   ui->steeringSlider->setValue(0);
-  ui->maxRightSteering->setText(QString(std::to_string(maxRightSteering).c_str()));
-  ui->maxLeftSteering->setText(QString(std::to_string(maxLeftSteering).c_str()));
+  ui->maxRightSteering->setText(
+      QString(std::to_string(maxRightSteering).c_str()));
+  ui->maxLeftSteering->setText(
+      QString(std::to_string(maxLeftSteering).c_str()));
 }
 
 void Dashboard::registerRosTopics()
@@ -306,6 +321,8 @@ void Dashboard::registerRosTopics()
       vdBatTopic, 10, boost::bind(&Dashboard::driveBatteryCallback, this, _1));
   vsBatSub = nh->subscribe<battery_msg>(
       vsBatTopic, 10, boost::bind(&Dashboard::systemBatteryCallback, this, _1));
+  odomSub = nh->subscribe<odom_msg>(
+      odomTopic, 10, boost::bind(&Dashboard::odomCallback, this, _1));
 }
 
 void Dashboard::callGetFirmwareServide()
@@ -397,8 +414,10 @@ void Dashboard::connectGuiSignals()
   connect(ui->maxSpeed, SIGNAL(clicked()), this, SLOT(maxSpeedClicked()));
   connect(ui->minSpeed, SIGNAL(clicked()), this, SLOT(minSpeedClicked()));
   connect(ui->zeroSpeed, SIGNAL(clicked()), this, SLOT(zeroSpeedClicked()));
-  connect(ui->maxRightSteering, SIGNAL(clicked()), this, SLOT(maxRightSteeringClicked()));
-  connect(ui->maxLeftSteering, SIGNAL(clicked()), this, SLOT(maxLeftSteeringClicked()));
+  connect(ui->maxRightSteering, SIGNAL(clicked()), this,
+          SLOT(maxRightSteeringClicked()));
+  connect(ui->maxLeftSteering, SIGNAL(clicked()), this,
+          SLOT(maxLeftSteeringClicked()));
   connect(ui->centerSteering, SIGNAL(clicked()), this,
           SLOT(centerSteeringClicked()));
   connect(ui->kinectToggle, SIGNAL(clicked()), this, SLOT(toggleKinect()));
@@ -503,6 +522,43 @@ void Dashboard::depthCallback(const image_msg::ConstPtr& img)
   ui->display_camera->setPixmap(QPixmap::fromImage(image));
 }
 
+void Dashboard::odomCallback(const odom_msg::ConstPtr& odom)
+{
+  ui->odom_vx->display(odom->twist.twist.linear.x);
+  ui->odom_vy->display(odom->twist.twist.linear.y);
+  ui->odom_vz->display(odom->twist.twist.linear.z);
+  ui->odom_wx->display(odom->twist.twist.angular.x);
+  ui->odom_wy->display(odom->twist.twist.angular.y);
+  ui->odom_wz->display(odom->twist.twist.angular.z);
+  ui->odom_quat_x->display(odom->pose.pose.orientation.x);
+  ui->odom_quat_y->display(odom->pose.pose.orientation.y);
+  ui->odom_quat_z->display(odom->pose.pose.orientation.z);
+  ui->odom_quat_w->display(odom->pose.pose.orientation.w);
+  ui->odom_x->display(odom->pose.pose.position.x);
+  ui->odom_y->display(odom->pose.pose.position.y);
+  ui->odom_z->display(odom->pose.pose.position.z);
+  double roll, pitch, yaw;
+  tf::Quaternion q;
+  tf::quaternionMsgToTF(odom->pose.pose.orientation, q);
+  tf::Matrix3x3 mat(q);
+  mat.getEulerYPR(yaw, pitch, roll);
+  ui->odom_roll->display(roll);
+  ui->odom_pitch->display(pitch);
+  ui->odom_yaw->display(yaw);
+  ui->odom_speed->display(
+      std::sqrt(odom->twist.twist.linear.x * odom->twist.twist.linear.x +
+                odom->twist.twist.linear.y * odom->twist.twist.linear.y +
+                odom->twist.twist.linear.z * odom->twist.twist.linear.z));
+  double dx = odom->pose.pose.position.x - x;
+  double dy = odom->pose.pose.position.y - y;
+  double dz = odom->pose.pose.position.z - z;
+  distanceTravelled += std::sqrt(dx * dx + dy * dy + dz * dz);
+  x = odom->pose.pose.position.x;
+  y = odom->pose.pose.position.y;
+  z = odom->pose.pose.position.z;
+  ui->odom_distance->display(distanceTravelled);
+}
+
 void Dashboard::keyPressEvent(QKeyEvent* event)
 {
   int speed = motorMessage.data;       // cmd.motor_level;
@@ -540,7 +596,8 @@ void Dashboard::keyPressEvent(QKeyEvent* event)
   {
     steering = steering + leftSgn * steeringStep;
     steeringSgn = boost::math::sign(steering);
-    if (std::abs(steering) <= std::abs(maxLeftSteering) || steeringSgn != leftSgn)
+    if (std::abs(steering) <= std::abs(maxLeftSteering) ||
+        steeringSgn != leftSgn)
     {
       steeringMessage.data = steering;
       steeringCommand.publish(steeringMessage);
@@ -552,7 +609,8 @@ void Dashboard::keyPressEvent(QKeyEvent* event)
   {
     steering = steering + rightSgn * steeringStep;
     steeringSgn = boost::math::sign(steering);
-    if (std::abs(steering) <= std::abs(maxRightSteering) || steeringSgn != rightSgn)
+    if (std::abs(steering) <= std::abs(maxRightSteering) ||
+        steeringSgn != rightSgn)
     {
       steeringMessage.data = steering;
       steeringCommand.publish(steeringMessage);

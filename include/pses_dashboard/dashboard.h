@@ -14,6 +14,7 @@
 #include <cv_bridge/cv_bridge.h>
 
 #include <ros/ros.h>
+#include <tf/tf.h>
 #include <std_msgs/String.h>
 #include <std_msgs/UInt8.h>
 #include <std_msgs/Float64.h>
@@ -23,6 +24,7 @@
 #include <sensor_msgs/BatteryState.h>
 #include <sensor_msgs/MagneticField.h>
 #include <sensor_msgs/Range.h>
+#include <nav_msgs/Odometry.h>
 
 #include <pses_ucbridge/GetFirmwareVersion.h>
 #include <pses_ucbridge/GetControllerID.h>
@@ -43,6 +45,7 @@ typedef sensor_msgs::Range range_msg;
 typedef std_msgs::Int16 int16_msg;
 typedef std_msgs::Float64 float64_msg;
 typedef std_msgs::UInt8 uint8_msg;
+typedef nav_msgs::Odometry odom_msg;
 
 static const std::string DEFAULT_MODE_CONTROL_TOPIC =
     "/dasboard/mode_control";
@@ -60,6 +63,7 @@ static const std::string DEFAULT_HALLDT_TOPIC = "/uc_bridge/hall_dt";
 static const std::string DEFAULT_HALLDT8_TOPIC = "/uc_bridge/hall_dt8";
 static const std::string DEFAULT_VDBAT_TOPIC = "/uc_bridge/vdbat";
 static const std::string DEFAULT_VSBAT_TOPIC = "/uc_bridge/vsbat";
+static const std::string DEFAULT_ODOM_TOPIC = "/odom";
 static const std::string DEFAULT_GET_FIRMWARE_SERVICE =
     "/uc_bridge/get_firmware_version";
 static const std::string DEFAULT_GET_CARID_SERVICE =
@@ -122,6 +126,7 @@ private:
   void systemBatteryCallback(const battery_msg::ConstPtr& vsBat);
   void cameraCallback(const image_msg::ConstPtr& img);
   void depthCallback(const image_msg::ConstPtr& img);
+  void odomCallback(const odom_msg::ConstPtr& odom);
 
   Ui::Dashboard* ui;
   ros::NodeHandle* nh;
@@ -129,7 +134,8 @@ private:
       imuTopic, magneticTopic, usrTopic, uslTopic, usfTopic, hallCntTopic,
       hallDtTopic, hallDt8Topic, vdBatTopic, vsBatTopic, getFirmwareService,
       getCarIdService, imageColorTopic, imageDepthTopic, toggleKinectService,
-      getSidService, toggleUSService, toggleMotorService, toggleDAQService;
+      getSidService, toggleUSService, toggleMotorService, toggleDAQService,
+      odomTopic;
   int maxForwardSpeed, maxReverseSpeed, speedStep, maxLeftSteering,
       maxRightSteering, steeringStep;
   int leftSgn, rightSgn, fwdSgn, bwdSgn;
@@ -137,10 +143,13 @@ private:
   int16_msg motorMessage;
   int16_msg steeringMessage;
   string_msg mode;
+  double distanceTravelled;
+  double x, y, z;
 
   ros::Publisher modeControl;
   ros::Publisher motorCommand;
   ros::Publisher steeringCommand;
+  ros::Subscriber odomSub;
   ros::Subscriber imuSub;
   ros::Subscriber magneticSub;
   ros::Subscriber usrSub;
