@@ -718,14 +718,14 @@ void Dashboard::cameraSelect(int index)
 
 void Dashboard::valueChangedSpeed(int value)
 {
-  motorMessage.data = value * speedStep;
+  motorMessage.data = value;
   motorCommand.publish(motorMessage);
   ros::spinOnce();
 }
 
 void Dashboard::valueChangedSteering(int value)
 {
-  steeringMessage.data = value * steeringStep;
+  steeringMessage.data = value;
   steeringCommand.publish(steeringMessage);
   ros::spinOnce();
 }
