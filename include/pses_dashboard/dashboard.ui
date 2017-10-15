@@ -739,7 +739,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>deg/s</string>
+       <string>rad/s</string>
       </property>
      </widget>
      <widget class="Line" name="line_4">
@@ -932,7 +932,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>deg/s</string>
+       <string>rad/s</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_49">
@@ -1074,7 +1074,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>deg/s</string>
+       <string>rad/s</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_35">
