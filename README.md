@@ -1,6 +1,6 @@
 # PSES Dashboard
 
-This ROS-package provides a simple GUI to control the pses robot and display sensor information.
+This ROS-package provides a simple GUI to control the pses robot and display sensor information. The pses robot is provided to the participants of the "Real Time Systems Lab" at FG Echtzeitsysteme - TU Darmstadt.
 
 ### Prerequisites
 
