@@ -28,7 +28,7 @@ Please feel free to browse our wiki, where you can find instructions on how to u
 
 If you're looking for a documentation on the code base, please follow this link:
 
-[C++ API](https://tud-pses.github.io/pses_dashboard/)
+[C++ documentation](https://tud-pses.github.io/pses_dashboard/)
 
 ## Authors
 
