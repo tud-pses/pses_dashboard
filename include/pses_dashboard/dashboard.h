@@ -100,22 +100,21 @@ typedef std_msgs::UInt8 uint8_msg;
 typedef nav_msgs::Odometry odom_msg;
 
 static const std::string DEFAULT_MODE_CONTROL_TOPIC =
-    "/dasboard/mode_control"; /**< Default topic on which mode selection is
-                                 published. */
+    "/dasboard/mode_control"; /**< Default topic on which mode selection
+                                 ispublished. */
 static const std::string DEFAULT_STEERING_COMMAND_TOPIC =
     "/uc_bridge/set_steering_level_msg"; /**< Default topic on which steering
                                             level is published. */
-static const std::string
-    DEFAULT_MOTOR_COMMAND_TOPIC =
-        "/uc_bridge/set_motor_level_msg"; /**< Default topic on which motor
-                                             level is published. */
+static const std::string DEFAULT_MOTOR_COMMAND_TOPIC =
+    "/uc_bridge/set_motor_level_msg"; /**< Default topic on which motor
+                                         level is published. */
 static const std::string DEFAULT_IMU_TOPIC =
     "/uc_bridge/imu"; /**< Default topic from which IMU messages can be
                          received. */
-static const std::string
-    DEFAULT_MAGNETIC_TOPIC = "/uc_bridge/mag"; /**< Default topic from which
-                                                  Magenetic Field messages can
-                                                  be received. */
+static const std::string DEFAULT_MAGNETIC_TOPIC =
+    "/uc_bridge/mag"; /**< Default topic from which
+                         Magenetic Field messages can
+                         be received. */
 static const std::string DEFAULT_USR_TOPIC =
     "/uc_bridge/usr"; /**< Default topic from which right ultra sonic range
                          messages can be received. */
@@ -125,21 +124,17 @@ static const std::string DEFAULT_USF_TOPIC =
 static const std::string DEFAULT_USL_TOPIC =
     "/uc_bridge/usl"; /**< Default topic from which left ultra sonic range
                          messages can be received. */
-static const std::
-    string
-        DEFAULT_HALLCNT_TOPIC =
-            "/uc_bridge/hall_cnt"; /**< Default topic from which hall count
-                                      messages can be received. */
+static const std::string DEFAULT_HALLCNT_TOPIC =
+    "/uc_bridge/hall_cnt"; /**< Default topic from which hall count
+                              messages can be received. */
 static const std::string DEFAULT_HALLDT_TOPIC =
     "/uc_bridge/hall_dt"; /**< Default topic from which hall time interval
                              messages can be received. */
 static const std::string DEFAULT_HALLDT8_TOPIC =
     "/uc_bridge/hall_dt8"; /**< Default topic from which hall full rotation
                               interval messages can be received. */
-static const std::string
-    DEFAULT_VDBAT_TOPIC = "/uc_bridge/vdbat"; /**< Default topic from which
-                                                 drive battery messages can be
-                                                 received. */
+static const std::string DEFAULT_VDBAT_TOPIC = "/uc_bridge/vdbat"; /**< Default
+topic from which drive battery messages can be received. */
 static const std::string DEFAULT_VSBAT_TOPIC =
     "/uc_bridge/vsbat"; /**< Default topic from which system battery messages
                            can be received. */
@@ -149,21 +144,18 @@ static const std::string DEFAULT_GET_FIRMWARE_SERVICE =
     "/uc_bridge/get_firmware_version"; /**< Default service from which the
                                           ucboard firmware version can be
                                           retreived. */
-static const std::string
-    DEFAULT_GET_CARID_SERVICE =
-        "/uc_bridge/get_controller_id"; /**< Default service from which the
-                                           ucboard id can be retreived. */
+static const std::string DEFAULT_GET_CARID_SERVICE =
+    "/uc_bridge/get_controller_id"; /**< Default service from which the
+                                       ucboard id can be retreived. */
 static const std::string DEFAULT_GET_SID_SERVICE =
     "/uc_bridge/get_session_id"; /**< Default service from which the ucboard
                                     session id can be retreived. */
 static const std::string DEFAULT_IMAGE_COLOR_TOPIC =
     "kinect2/qhd/image_color"; /**< Default topic from which qhd color images
                                   can be received. */
-static const std::
-    string
-        DEFAULT_IMAGE_DEPTH_TOPIC =
-            "kinect2/sd/image_depth"; /**< Default topic from which sd depth
-                                         images can be received. */
+static const std::string DEFAULT_IMAGE_DEPTH_TOPIC =
+    "kinect2/sd/image_depth"; /**< Default topic from which sd depth
+                                 images can be received. */
 static const std::string DEFAULT_TOGGLE_KINECT_SERVICE =
     "/uc_bridge/toggle_kinect"; /**< Default service that toggles the kinect
                                    power supply. */
@@ -189,9 +181,9 @@ static const int DEFAULT_MAX_LEFT_STEER =
     -1000; /**< Maximum allowed left steering level. */
 static const int DEFAULT_MAX_RIGHT_STEER =
     1000; /**< Maximum allowed right steering level. */
-static const int DEFAULT_STEER_STEP =
-    100; /**< Increments in which the steering level can be changed, either
-            through the slider widget or key strokes. */
+static const int DEFAULT_STEER_STEP = 100; /**< Increments in which the
+steering level can be changed, either through the slider widget or key strokes.
+*/
 static const std::string VIDEO_FEED_MODE_COLOR =
     "Color Image (1280x720)"; /**< Color video feed mode. */
 static const std::string VIDEO_FEED_MODE_DEPTH =
