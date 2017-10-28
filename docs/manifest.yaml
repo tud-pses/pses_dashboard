@@ -4,12 +4,18 @@ brief: ''
 bugtracker: ''
 depends:
 - nav_msgs
+- Qt5Core
 - catkin
 - roscpp
 - pses_ucbridge
 - std_msgs
 - sensor_msgs
+- Qt5Gui
+- OpenCV
+- '>OpenCV'
+- Qt5Widgets
 - tf
+- '>Qt5Widgets'
 - cv_bridge
 description: The pses_dashboard package
 license: GPLv3

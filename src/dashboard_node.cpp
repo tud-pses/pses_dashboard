@@ -1,11 +1,23 @@
+/**
+ * @file "dashboard_node.cpp"
+ * @brief Main node of the pses_dashboard package.
+ *
+*/
+
 #include <ros/ros.h>
 #include <qt5/QtWidgets/qapplication.h>
 #include <pses_dashboard/dashboard.h>
 #include <signal.h>
 #include <unistd.h>
 
-const double loopRate = 50.0;
-
+/**
+ * @brief This function is the callback for the shutdown system signal.
+ *
+ * If the OS catches a shutdown system signal (e.g. ctrl+x in command line)
+ * this function will be called and shut down the Gui.
+ * @param[in] sig os signals
+ * @param[in] sig os signals to be ignored
+*/
 void catchUnixSignals(
     const std::vector<int>& quitSignals,
     const std::vector<int>& ignoreSignals = std::vector<int>())
@@ -26,10 +38,13 @@ void catchUnixSignals(
     signal(sig, handler);
 }
 
+/**
+ * @brief Main function of this node.
+*/
 int main(int argc, char** argv)
 {
 
-  ros::init(argc, argv, "car_dashboard");
+  ros::init(argc, argv, "dashboard");
   ros::NodeHandle nh;
   QApplication a(argc, argv);
   catchUnixSignals({SIGQUIT, SIGINT, SIGTERM, SIGHUP});
