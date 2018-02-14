@@ -55,7 +55,7 @@
   <run_depend>Qt5Core</run_depend>
   <run_depend>>Qt5Widgets</run_depend>
   <run_depend>Qt5Gui</run_depend>
-  <run_depend>>OpenCV</run_depend>
+  <run_depend>OpenCV</run_depend>
   <run_depend>pses_ucbridge</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>sensor_msgs</run_depend>
