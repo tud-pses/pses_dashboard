@@ -192,7 +192,7 @@
      <rect>
       <x>213</x>
       <y>370</y>
-      <width>101</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -205,7 +205,7 @@
      <rect>
       <x>20</x>
       <y>40</y>
-      <width>91</width>
+      <width>101</width>
       <height>20</height>
      </rect>
     </property>
@@ -350,7 +350,7 @@
      <rect>
       <x>90</x>
       <y>10</y>
-      <width>111</width>
+      <width>131</width>
       <height>16</height>
      </rect>
     </property>
@@ -361,7 +361,7 @@
    <widget class="QLabel" name="firmware_label">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>210</x>
       <y>10</y>
       <width>71</width>
       <height>16</height>
@@ -425,7 +425,7 @@
       <x>500</x>
       <y>10</y>
       <width>491</width>
-      <height>461</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -534,7 +534,7 @@
        <rect>
         <x>10</x>
         <y>30</y>
-        <width>81</width>
+        <width>91</width>
         <height>20</height>
        </rect>
       </property>
@@ -587,7 +587,7 @@
        <rect>
         <x>160</x>
         <y>0</y>
-        <width>121</width>
+        <width>131</width>
         <height>20</height>
        </rect>
       </property>
@@ -689,7 +689,7 @@
        <rect>
         <x>10</x>
         <y>160</y>
-        <width>101</width>
+        <width>111</width>
         <height>20</height>
        </rect>
       </property>
@@ -1005,7 +1005,7 @@
        <rect>
         <x>10</x>
         <y>290</y>
-        <width>131</width>
+        <width>141</width>
         <height>20</height>
        </rect>
       </property>
@@ -1462,7 +1462,7 @@
        <rect>
         <x>10</x>
         <y>160</y>
-        <width>101</width>
+        <width>71</width>
         <height>20</height>
        </rect>
       </property>
@@ -1507,7 +1507,7 @@
        <rect>
         <x>160</x>
         <y>0</y>
-        <width>141</width>
+        <width>161</width>
         <height>20</height>
        </rect>
       </property>
@@ -1531,7 +1531,7 @@
      <widget class="QLabel" name="label_64">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>450</x>
         <y>60</y>
         <width>41</width>
         <height>16</height>
@@ -1557,7 +1557,7 @@
      <widget class="QLCDNumber" name="odom_distance">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>320</x>
         <y>220</y>
         <width>121</width>
         <height>23</height>
@@ -1591,7 +1591,7 @@
      <widget class="QLCDNumber" name="odom_speed">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>320</x>
         <y>190</y>
         <width>121</width>
         <height>23</height>
@@ -1612,7 +1612,7 @@
      <widget class="QLabel" name="label_67">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>190</y>
         <width>41</width>
         <height>16</height>
@@ -1651,7 +1651,7 @@
      <widget class="QLCDNumber" name="odom_vx">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>190</y>
         <width>121</width>
         <height>23</height>
@@ -1672,7 +1672,7 @@
      <widget class="QLCDNumber" name="odom_yaw">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>120</y>
         <width>121</width>
         <height>23</height>
@@ -1693,7 +1693,7 @@
      <widget class="QLCDNumber" name="odom_z">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>320</x>
         <y>120</y>
         <width>121</width>
         <height>23</height>
@@ -1727,7 +1727,7 @@
      <widget class="QLabel" name="label_76">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>60</y>
         <width>41</width>
         <height>16</height>
@@ -1740,7 +1740,7 @@
      <widget class="QLCDNumber" name="odom_roll">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>60</y>
         <width>121</width>
         <height>23</height>
@@ -1776,7 +1776,7 @@
        <rect>
         <x>240</x>
         <y>160</y>
-        <width>131</width>
+        <width>151</width>
         <height>20</height>
        </rect>
       </property>
@@ -1793,7 +1793,7 @@
      <widget class="QLabel" name="label_81">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>450</x>
         <y>220</y>
         <width>16</width>
         <height>16</height>
@@ -1834,7 +1834,7 @@
        <rect>
         <x>10</x>
         <y>30</y>
-        <width>81</width>
+        <width>91</width>
         <height>20</height>
        </rect>
       </property>
@@ -1851,7 +1851,7 @@
      <widget class="QLCDNumber" name="odom_pitch">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>90</y>
         <width>121</width>
         <height>23</height>
@@ -1874,7 +1874,7 @@
        <rect>
         <x>240</x>
         <y>30</y>
-        <width>131</width>
+        <width>71</width>
         <height>20</height>
        </rect>
       </property>
@@ -1891,7 +1891,7 @@
      <widget class="QLCDNumber" name="odom_vy">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>220</y>
         <width>121</width>
         <height>23</height>
@@ -1912,7 +1912,7 @@
      <widget class="QLCDNumber" name="odom_vz">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>250</y>
         <width>121</width>
         <height>23</height>
@@ -1933,7 +1933,7 @@
      <widget class="QLabel" name="label_88">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>120</y>
         <width>41</width>
         <height>16</height>
@@ -1946,9 +1946,9 @@
      <widget class="QLabel" name="label_89">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>450</x>
         <y>190</y>
-        <width>21</width>
+        <width>31</width>
         <height>16</height>
        </rect>
       </property>
@@ -1959,7 +1959,7 @@
      <widget class="QLabel" name="label_90">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>90</y>
         <width>41</width>
         <height>16</height>
@@ -1974,7 +1974,7 @@
        <rect>
         <x>10</x>
         <y>90</y>
-        <width>31</width>
+        <width>41</width>
         <height>20</height>
        </rect>
       </property>
@@ -1985,7 +1985,7 @@
      <widget class="QLabel" name="label_93">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>250</y>
         <width>41</width>
         <height>16</height>
@@ -1998,7 +1998,7 @@
      <widget class="QLabel" name="label_94">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>220</y>
         <width>41</width>
         <height>16</height>
@@ -2011,7 +2011,7 @@
      <widget class="QLCDNumber" name="odom_y">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>320</x>
         <y>90</y>
         <width>121</width>
         <height>23</height>
@@ -2071,7 +2071,7 @@
      <widget class="QLCDNumber" name="odom_x">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>320</x>
         <y>60</y>
         <width>121</width>
         <height>23</height>
@@ -2092,7 +2092,7 @@
      <widget class="QLabel" name="label_98">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>450</x>
         <y>90</y>
         <width>41</width>
         <height>16</height>
@@ -2105,7 +2105,7 @@
      <widget class="QLabel" name="label_99">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>450</x>
         <y>120</y>
         <width>41</width>
         <height>16</height>
@@ -2159,7 +2159,7 @@
        <rect>
         <x>240</x>
         <y>290</y>
-        <width>151</width>
+        <width>181</width>
         <height>20</height>
        </rect>
       </property>
@@ -2262,19 +2262,6 @@
        <string>Z</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_106">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>430</y>
-        <width>21</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Vz</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_107">
       <property name="geometry">
        <rect>
@@ -2312,7 +2299,7 @@
      <widget class="QLabel" name="label_237">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>320</y>
         <width>41</width>
         <height>16</height>
@@ -2351,7 +2338,7 @@
      <widget class="QLCDNumber" name="odom_wy">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>350</y>
         <width>121</width>
         <height>23</height>
@@ -2372,7 +2359,7 @@
      <widget class="QLabel" name="label_240">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>380</y>
         <width>41</width>
         <height>16</height>
@@ -2385,7 +2372,7 @@
      <widget class="QLCDNumber" name="odom_wz">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>380</y>
         <width>121</width>
         <height>23</height>
@@ -2419,7 +2406,7 @@
      <widget class="QLCDNumber" name="odom_wx">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>50</x>
         <y>320</y>
         <width>121</width>
         <height>23</height>
@@ -2442,7 +2429,7 @@
        <rect>
         <x>10</x>
         <y>290</y>
-        <width>101</width>
+        <width>121</width>
         <height>20</height>
        </rect>
       </property>
@@ -2459,7 +2446,7 @@
      <widget class="QLabel" name="label_243">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>180</x>
         <y>350</y>
         <width>41</width>
         <height>16</height>
@@ -2509,7 +2496,7 @@
    <widget class="QLabel" name="sid_label">
     <property name="geometry">
      <rect>
-      <x>342</x>
+      <x>350</x>
       <y>10</y>
       <width>71</width>
       <height>16</height>
@@ -2583,7 +2570,7 @@
      <x>0</x>
      <y>0</y>
      <width>998</width>
-     <height>19</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
